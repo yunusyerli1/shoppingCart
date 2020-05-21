@@ -66,7 +66,7 @@ footer {
 }
 .main{
   flex: 3 60rem;
-  background-color: rgb(188, 223, 211);
+  background-color: rgb(180, 180, 157);
 }
 .sidebar{
   flex: 1 20rem;
@@ -135,5 +135,48 @@ footer {
   border-bottom: 0.1rem #c0c0c0 solid;
 }
 .filter div {
+  flex: 1;
+}
+/*Sidebar*/
+.cart {
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+}
+.cart-header {
+  border-bottom: 0.1rem #c0c0c0 solid;
+}
+.cart-items {
+  padding: 0;
+  width: 100%;
+  list-style-type: none;
+}
+.cart-items li {
+  display: flex;
+}
+.cart-items li div {
+  padding: .5rem;
+}
+.cart-items img {
+  width: 5rem;
+}
+.cart-items li div:last-child {
+  flex:1;
+}
+.right {
+  text-align: right;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.total > div{
+  font-size: 2rem;
+}
+.total > div,
+.total >button {
   flex: 1;
 }

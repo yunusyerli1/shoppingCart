@@ -3,9 +3,15 @@ import formatCurrency from '../util'
 import Fade  from 'react-reveal/Fade';
 import Zoom  from 'react-reveal/Zoom';
 import Modal from 'react-modal';
+import { fetchProducts } from '../actions/productActions';
+import {connect} from 'react-redux';
 
  class Products extends Component {
      state = {product:null};
+     componentDidMount() {
+         this.props.fetchProducts();
+     }
+     
      openModal = product => {
          this.setState({product});
      }
@@ -17,7 +23,10 @@ import Modal from 'react-modal';
         return (
             <div>
             <Fade bottom cascade>
-                <ul className="products">
+                {
+                    !this.props.products ? <div>Loading...</div>
+                    : (
+                    <ul className="products">
                     {this.props.products.map(product=>(
                         <li key={product._id}>
                             <div className="product">
@@ -33,6 +42,8 @@ import Modal from 'react-modal';
                         </li>
                     ))}
                 </ul>
+                )}
+                
             </Fade>
             {product && 
                 <Modal isOpen={true} onRequestClose={this.closeModal}>
@@ -68,4 +79,9 @@ import Modal from 'react-modal';
         )
     }
 }
-export default  Products;
+const mapStateToProps = state => {
+    return {
+        products: state.products.items
+    };
+}
+export default  connect(mapStateToProps,{fetchProducts})(Products);

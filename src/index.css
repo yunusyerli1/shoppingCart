@@ -66,11 +66,9 @@ footer {
 }
 .main{
   flex: 3 60rem;
-  background-color: rgb(180, 180, 157);
 }
 .sidebar{
   flex: 1 20rem;
-  background-color: rgb(228, 219, 208);
 }
 
 

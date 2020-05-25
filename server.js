@@ -5,12 +5,15 @@ const mongoose = require("mongoose");
 const shortid = require("shortid");
 
 const app = express();
+
 app.use(bodyParser.json());
+
 
 mongoose.connect("mongodb://localhost/react-shopping-cart-db",{
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
+
 });
 const Product = mongoose.model("products", new mongoose.Schema({
     _id: {type: String, default: shortid.generate},
@@ -38,3 +41,7 @@ app.delete ("/api/products/:id", async (req, res) => {
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log("serve at http://localhost:5000"));
+=======
+}
+)
+

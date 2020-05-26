@@ -65,10 +65,10 @@ footer {
   flex-wrap: wrap;
 }
 .main{
-  flex: 3 60rem;
+  flex: 3 40rem;
 }
 .sidebar{
-  flex: 1 20rem;
+  flex: 1 15rem;
 }
 
 

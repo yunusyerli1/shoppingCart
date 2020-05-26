@@ -3,8 +3,9 @@ import formatCurrency from '../util'
 import Fade  from 'react-reveal/Fade';
 import Zoom  from 'react-reveal/Zoom';
 import Modal from 'react-modal';
-import { fetchProducts } from '../actions/productActions';
-import { addToCart } from '../actions/cartActions';
+import ProductItem from './ProductItem'
+import { fetchProducts } from '../redux/actions/productActions';
+import { addToCart } from '../redux/actions/cartActions';
 import {connect} from 'react-redux';
 
  class Products extends Component {
@@ -29,32 +30,16 @@ import {connect} from 'react-redux';
           ) : (
             <ul className="products">
               {this.props.products.map((product) => (
-                <li key={product._id}>
-                  <div className="product">
-                    <a
-                      href={"#" + product._id}
-                      onClick={() => this.openModal(product)}
-                    >
-                      <img src={product.image} alt={product.title}></img>
-                      <p>{product.title}</p>
-                    </a>
-                    <div className="product-price">
-                      <div>{formatCurrency(product.price)}</div>
-                      <button
-                        onClick={() => this.props.addToCart(product)}
-                        className="button primary"
-                      >
-                        Add To Cart
-                      </button>
-                    </div>
-                  </div>
-                </li>
+
+                <ProductItem key={product._id} openModal={this.openModal} product={product}/>
               ))}
             </ul>
           )}
         </Fade>
+
+
         {product && (
-          <Modal isOpen={true} onRequestClose={this.closeModal}>
+          <Modal isOpen={true}  ariaHideApp={false} onRequestClose={this.closeModal}>
             <Zoom>
               <button className="close-modal" onClick={this.closeModal}>
                 x
@@ -69,9 +54,9 @@ import {connect} from 'react-redux';
                   <p>
                     Avaiable Sizes:{" "}
                     {product.availableSizes.map((x) => (
-                      <span>
+                      <span key={x} >
                         {" "}
-                        <button className="button">{x}</button>
+                        <button className="button" >{x}</button>
                       </span>
                     ))}
                   </p>

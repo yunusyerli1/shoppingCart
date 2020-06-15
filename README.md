@@ -20,7 +20,7 @@
 
 
 ## Info
-In this project, I worked on amazon kind a shopppig cart page using react. For the design I used CSS Flexbox.  The page shows products from a database. You can click "Add To Cart" button as many times.Then, ont rigth side, sidebar shows your cart status.  You can click products and go to product's page modal. On the modal, you can read detailed product information and click "Add To Cart" button. For database, localhost:5000 was founded with nodemon and express.js
+In this project, I worked on amazon kind a shopppig cart page using react. For the design I used CSS Flexbox.  The page shows products from MongoDB database. You can click "Add To Cart" button as many times.Then, ont rigth side, sidebar shows your cart status.  You can click products and go to product's page modal. On the modal, you can read detailed product information and click "Add To Cart" button. For database, localhost:5000 was founded with nodemon and express.js and start the server with "npm run server".
 
 
 
